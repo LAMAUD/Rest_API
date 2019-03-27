@@ -56,6 +56,7 @@ public class RestApiApplicationTests {
    }
    
    @Test
+   @Ignore
    public void whenGetAllUsers_thenOK() {
        Response response = RestAssured.get(API_ROOT);
      
@@ -63,6 +64,7 @@ public class RestApiApplicationTests {
    }
     
    @Test
+   @Ignore
    public void whenGetUsersByLastName_thenOK() {
        User user = createRandomUser();
        createUserAsUri(user);
@@ -74,6 +76,7 @@ public class RestApiApplicationTests {
          .size() > 0);
    }
    @Test
+   @Ignore
    public void whenGetCreatedUserById_thenOK() {
        User user = createRandomUser();
        String location = createUserAsUri(user);
@@ -93,6 +96,7 @@ public class RestApiApplicationTests {
    }
    
    @Test
+   @Ignore
    public void whenCreateNewUser_thenCreated() {
        User bouserok = createRandomUser();
        Response response = RestAssured.given()
@@ -104,6 +108,7 @@ public class RestApiApplicationTests {
    }
     
    @Test
+   @Ignore
    public void whenInvalidUser_thenError() {
        User user = createRandomUser();
        user.setLastName(null);
