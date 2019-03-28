@@ -1,21 +1,20 @@
 package com.clamaud.restAPI.domain.jpa;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-@Entity
+
+import java.math.BigInteger;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "users")
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private BigInteger id;
 	
 	private String firstName;
 	
-	@Column(nullable = false, unique = true)
 	private String lastName;
 
 	public String getFirstName() {
@@ -34,11 +33,11 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public long getId() {
+	public BigInteger getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(BigInteger id) {
 		this.id = id;
 	}
 	

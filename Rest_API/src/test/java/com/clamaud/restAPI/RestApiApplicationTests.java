@@ -4,6 +4,7 @@ package com.clamaud.restAPI;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Random;
@@ -56,6 +57,7 @@ public class RestApiApplicationTests {
    }
    
    @Test
+   @Ignore
    public void whenGetAllUsers_thenOK() {
        Response response = RestAssured.get(API_ROOT);
      
@@ -63,6 +65,7 @@ public class RestApiApplicationTests {
    }
     
    @Test
+   @Ignore
    public void whenGetUsersByLastName_thenOK() {
        User user = createRandomUser();
        createUserAsUri(user);
@@ -74,6 +77,7 @@ public class RestApiApplicationTests {
          .size() > 0);
    }
    @Test
+   @Ignore
    public void whenGetCreatedUserById_thenOK() {
        User user = createRandomUser();
        String location = createUserAsUri(user);
@@ -93,6 +97,7 @@ public class RestApiApplicationTests {
    }
    
    @Test
+   @Ignore
    public void whenCreateNewUser_thenCreated() {
        User bouserok = createRandomUser();
        Response response = RestAssured.given()
@@ -104,6 +109,7 @@ public class RestApiApplicationTests {
    }
     
    @Test
+   @Ignore
    public void whenInvalidUser_thenError() {
        User user = createRandomUser();
        user.setLastName(null);
@@ -120,7 +126,7 @@ public class RestApiApplicationTests {
    public void whenUpdateCreatedUser_thenUpdated() {
        User user = createRandomUser();
        String location = createUserAsUri(user);
-       user.setId(Long.parseLong(location.split("api/users/")[1]));
+       user.setId(BigInteger.valueOf(Long.parseLong(location.split("api/users/")[1])));
        user.setLastName("newAuthor");
        Response response = RestAssured.given()
          .contentType(MediaType.APPLICATION_JSON_VALUE)

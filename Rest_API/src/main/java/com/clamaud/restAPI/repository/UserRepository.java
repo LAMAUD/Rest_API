@@ -1,8 +1,9 @@
 package com.clamaud.restAPI.repository;
 
+import java.math.BigInteger;
 import java.util.List;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.clamaud.restAPI.domain.jpa.User;
 
@@ -12,7 +13,7 @@ import com.clamaud.restAPI.domain.jpa.User;
  * Repository Spring DATA
  */
 
-public interface UserRepository extends CrudRepository<User, Long>{
+public interface UserRepository extends MongoRepository<User, BigInteger>{
 
 	List<User> findByLastName(String lastName);
 	

@@ -1,5 +1,6 @@
 package com.clamaud.restAPI.controller;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,7 +36,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/{id}")
-	public User findById(@PathVariable Long id){
+	public User findById(@PathVariable BigInteger id){
 		Optional<User> optionalUser = userRepository.findById(id);
 		
 		return optionalUser.get();
@@ -51,7 +52,7 @@ public class UserController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteUser(@PathVariable Long id) {
+	public void deleteUser(@PathVariable BigInteger id) {
 		
 		Optional<User> user = userRepository.findById(id);
 		userRepository.delete(user.get());
