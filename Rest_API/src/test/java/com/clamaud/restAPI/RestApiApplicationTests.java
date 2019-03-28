@@ -4,6 +4,7 @@ package com.clamaud.restAPI;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Random;
@@ -125,7 +126,7 @@ public class RestApiApplicationTests {
    public void whenUpdateCreatedUser_thenUpdated() {
        User user = createRandomUser();
        String location = createUserAsUri(user);
-       user.setId(Long.parseLong(location.split("api/users/")[1]));
+       user.setId(BigInteger.valueOf(Long.parseLong(location.split("api/users/")[1])));
        user.setLastName("newAuthor");
        Response response = RestAssured.given()
          .contentType(MediaType.APPLICATION_JSON_VALUE)

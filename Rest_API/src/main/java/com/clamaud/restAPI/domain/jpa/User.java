@@ -2,6 +2,8 @@ package com.clamaud.restAPI.domain.jpa;
 
 
 
+import java.math.BigInteger;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
 	@Id
-	private long id;
+	private BigInteger id;
 	
 	private String firstName;
 	
@@ -31,11 +33,11 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public long getId() {
+	public BigInteger getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(BigInteger id) {
 		this.id = id;
 	}
 	
